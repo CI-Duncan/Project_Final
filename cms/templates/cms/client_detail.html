@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ client.first_name }} {{ client.last_name }}</h1>
+  <p>Gender: {{ client.get_gender_display }}</p>
+  <p>Birth Date: {{ client.birth_date }}</p>
+  <p>Address: {{ client.address }}</p>
+  <p>Phone Number: {{ client.phone_number }}</p>
+  <a href="{% url 'cms:client_edit' client.pk %}">Edit</a>
+  <a href="{% url 'cms:client_delete' client.pk %}">Delete</a>
+{% endblock %}

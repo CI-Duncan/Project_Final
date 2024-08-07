@@ -16,17 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from cms.views import cms
-from cms import views
-
-app_name = 'cms'
 
 urlpatterns = [
-    path('cms', cms, name='cms'),
     path('admin/', admin.site.urls),
-    path('', views.client_list, name='client_list'),
-    path('new/', views.client_new, name='client_new'),
-    path('<int:pk>/', views.client_detail, name='client_detail'),
-    path('<int:pk>/edit/', views.client_edit, name='client_edit'),
-    path('<int:pk>/delete/', views.client_delete, name='client_delete'),
+    path('cms/', include('cms.urls')),
 ]

@@ -1,7 +1,9 @@
 h1 {
-    color: #EEE0CB;
+    text-align: center;
+    color: #16425B;
 }
 
 body {
     background-color: #71D0EA;
+    background: linear-gradient(to right, transparent, 10%, #71D0EA, 98%, transparent);
 }

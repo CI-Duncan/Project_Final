@@ -6,6 +6,16 @@
   <p>Birth Date: {{ client.birth_date }}</p>
   <p>Address: {{ client.address }}</p>
   <p>Phone Number: {{ client.phone_number }}</p>
+
+  <h2>Notes</h2>
+  <ul>
+    {% for note in notes %}
+      <li>
+        <a href="{% url 'cms:note_detail' note.pk %}">{{ note.title }}</a> - {{ note.created_on }}
+      </li>
+    {% endfor %}
+  </ul>
+
   <a href="{% url 'cms:client_edit' client.pk %}">Edit</a>
   <a href="{% url 'cms:client_delete' client.pk %}">Delete</a>
 {% endblock %}

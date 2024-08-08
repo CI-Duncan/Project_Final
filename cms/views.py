@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
 from django.forms import ModelForm
-from .models import Client
+from django.http import HttpResponse
+from django.views import generic
+from .models import Client, Note
 
 # Create your views here.
 def cms(request):
@@ -14,19 +15,24 @@ class ClientForm(ModelForm):
         model = Client
         fields = ["first_name", "last_name", "gender", "birth_date", "address", "phone_number"]
 
+class NoteForm(ModelForm):
+    class Meta:
+        model = Note
+        fields = ["title", "slug", "author", "content"]
+
 
 
 def client_list(request):
     query = request.GET.get('q')
     if query:
-        clients = Client.objects.filter(first_name__icontains(query))
+        clients = Client.objects.filter(first_name__icontains=query)
     else:
         clients = Client.objects.all()
-    return render(request, 'clients/client_list.html', {'clients': clients})
+    return render(request, 'cms/client_list.html', {'clients': clients})
 
 def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    return render(request, 'clients/client_detail.html', {'client': client})
+    return render(request, 'cms/client_detail.html', {'client': client})
 
 def client_new(request):
     if request.method == "POST":
@@ -37,7 +43,7 @@ def client_new(request):
     else:
         form = ClientForm()
 
-    return render(request, 'clients/add_client.html', {'form': form})
+    return render(request, 'cms/add_client.html', {'form': form})
 
 def client_edit(request, pk):
     client = get_object_or_404(Client, pk=pk)
@@ -48,7 +54,7 @@ def client_edit(request, pk):
             return redirect('cms:client_list')
     else:
         form = ClientForm(instance=client)
-    return render(request, 'clients/client_form.html', {'form': form})
+    return render(request, 'cms/client_form.html', {'form': form})
 
 def client_delete(request, pk):
     client = get_object_or_404(Client, pk=pk)

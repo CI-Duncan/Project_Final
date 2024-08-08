@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, Carer
+from .models import Client, Carer, Note
 
 # Register your models here.
 class ClientAdmin(admin.ModelAdmin):
@@ -12,5 +12,15 @@ class CarerAdmin(admin.ModelAdmin):
     search_fields = ('user__username',)
     filter_horizontal = ('clients',)
 
+class NoteAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'author', 'created_on',)
+    search_fields = ('title', 'author__username', 'client__first_name', 'client__last_name')
+    list_filter = ('author', 'created_on',)
+    prepopulated_fields = {'slug': ('title',)}
+    # filter_horizontal = ('clients',)
+
+
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Carer, CarerAdmin)
+admin.site.register(Note, NoteAdmin)
+

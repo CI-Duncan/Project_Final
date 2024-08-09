@@ -20,12 +20,15 @@
         <!-- Navigation menu  -->
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'cms:client_list' %}">My App</a>
+        <a class="navbar-brand" href="{% url 'cms:Home' %}">My App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cms:home' %}">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == client_list_url %}active" aria-current="{% endif %}" href="{% url 'cms:client_list' %}">Clients</a>                    
                 <li class="nav-item">
@@ -48,7 +51,6 @@
             </ul>
         </div>
     </nav>
-
     <main>
         {% block content %}
         <!-- Page Specific content will be displayed here -->
@@ -56,7 +58,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Care Management System. All rights reserved.</p>
+        <div class="footer-text">
+            <p>&copy; 2024 Care Management System. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Include JavaScript files here -->

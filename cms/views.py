@@ -5,8 +5,8 @@ from django.views import generic
 from .models import Client, Note
 
 # Create your views here.
-def cms(request):
-    return HttpResponse("CMS test")
+def home(request):
+   return render(request, 'cms/home.html')
 
 
 # Create the form class.

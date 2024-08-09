@@ -31,7 +31,7 @@ class Carer(models.Model):
     clients = models.ManyToManyField(Client, related_name='carers')
 
     class Meta:
-        ordering = ["-user"]
+        ordering = ["-user__username"]
 
     def __str__(self):
         return self.user.username
@@ -43,9 +43,12 @@ class Note(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="client_notes"
     )
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='notes', default=1)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='notes', null=True, blank=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on",]
 
     def __str__(self):
         return f"{self.title} | for {self.client}"

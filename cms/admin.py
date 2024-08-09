@@ -20,10 +20,10 @@ class NoteAdmin(SummernoteModelAdmin):
     list_filter = ('author', 'created_on', 'client',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-    # filter_horizontal = ('client',)
+   
 
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Carer, CarerAdmin)
-# admin.site.register(Note, NoteAdmin)
+
 

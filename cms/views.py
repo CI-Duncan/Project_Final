@@ -4,9 +4,15 @@ from django.http import HttpResponse
 from django.views import generic
 from .models import Client, Note
 
+
+
 # Create your views here.
+# def home(request):
+#    return render(request, 'cms/home.html')
+
 def home(request):
-   return render(request, 'cms/home.html')
+    return render(request, 'cms/home.html')
+
 
 
 # Create the form class.

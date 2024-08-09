@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}CMS | Clients{% endblock %}
+
 {% block content %}
   <h1>{{ client.first_name }} {{ client.last_name }}</h1>
   <p>Gender: {{ client.get_gender_display }}</p>

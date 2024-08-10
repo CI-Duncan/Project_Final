@@ -52,8 +52,8 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/cms'
+LOGOUT_REDIRECT_URL = '/cms'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

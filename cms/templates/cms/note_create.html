@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Create New Note{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <button type="submit">Submit</button>
+</form>
+<!-- <div class="container mt-4">
+    <h1>Create a New Note</h1>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="id_title" name="title" value="{{ form.title.value|default_if_none:'' }}" required>
+            {% if form.title.errors %}
+                <div class="text-danger">{{ form.title.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_slug" class="form-label">Slug</label>
+            <input type="text" class="form-control" id="id_slug" name="slug" value="{{ form.slug.value|default_if_none:'' }}" required>
+            {% if form.slug.errors %}
+                <div class="text-danger">{{ form.slug.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="id_content" class="form-label">Content</label>
+            <textarea class="form-control" id="id_content" name="content" rows="5" required>{{ form.content.value|default_if_none:'' }}</textarea>
+            {% if form.content.errors %}
+                <div class="text-danger">{{ form.content.errors }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Note</button>
+        <a href="{% url 'cms:client_detail' client.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div> -->
+{% endblock %}

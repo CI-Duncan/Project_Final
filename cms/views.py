@@ -25,7 +25,7 @@ class ClientForm(ModelForm):
 class NoteForm(ModelForm):
     class Meta:
         model = Note
-        fields = ["title", "slug", "author", "content"]
+        fields = ["title", "slug", "author", "condition", "content"]
 
 # Define the contents of the note content view
 def note_content(request, pk):

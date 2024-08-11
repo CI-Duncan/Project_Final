@@ -44,6 +44,7 @@ class Note(models.Model):
         User, on_delete=models.CASCADE, related_name="client_notes"
     )
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='notes', null=True, blank=True)
+    condition = models.TextField(default='Please describe the clients condition')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 

@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active" aria-current="{% endif %}" href="{% url 'cms:home' %}">Home</a>
                     </li>
-                    {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == client_list_url %}active" aria-current="{% endif %}" href="{% url 'cms:client_list' %}">Clients</a>
                     </li>

@@ -155,6 +155,11 @@ body, html {
     margin-right: 10%;
 }
 
+main {
+  position: relative;
+  min-height: 97%;
+}
+
 footer {
     position: fixed;
     bottom: 0;

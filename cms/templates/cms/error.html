@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-danger mt-5" role="alert">
+        {{ error_message }}
+    </div>
+    <a href="{% url 'cms:client_list' %}" class="btn btn-primary">Go Back</a>
+</div>
+{% endblock %}

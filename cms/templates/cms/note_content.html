@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="note-content">
+    <h2>{{ note.title }}</h2>
+    <p><strong>Author:</strong> {{ note.author }}</p>
+    <p><strong>Date Created:</strong> {{ note.created_on }}</p>
+    <hr>
+    <p>{{ note.content }}</p>
+  </div>
+{% endblock %}

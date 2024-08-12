@@ -1,3 +1,5 @@
+/* Font Usage */
+
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 400 to 700
 
@@ -114,19 +116,20 @@
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: italic;
-  } */
+  } 
+} */
 
-  body {
-    background-color: #71D0EA;
-    background: linear-gradient(to right, transparent, 5%, #71D0EA, 95%, transparent);
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+body {
+  background-color: #71D0EA;
+  background: linear-gradient(to right, transparent, 5%, #71D0EA, 95%, transparent);
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body, html {
-    height: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -138,24 +141,24 @@ h1 {
 }
 
 .navbar-custom {
-    background-color: #16425B;
+  background-color: #16425B;
 }
 
 .navbar-custom .navbar-brand{
-    color: #CADF9E
+  color: #CADF9E
 }
 
 .navbar-custom a {
-    color: #D0B8AC;
+  color: #D0B8AC;
 }
 
 .home-text {
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    margin-left: 10%;
-    margin-right: 10%;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 main {
@@ -163,44 +166,45 @@ main {
   min-height: 97%;
 }
 
+.page-header{
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  width: 80vw;
+}
+
+.body-text{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.body-text h2 {
+  font-weight: 400
+}
+
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 6%;   
-    background: #363732;
-    text-align:  center;
-    color: #D0B8AC;
- }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6%;   
+  background: #363732;
+  text-align:  center;
+  color: #D0B8AC;
+}
 
 .footer-text{
-    text-align: center;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #D0B8AC;
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #D0B8AC;
 }
 
 /* The hero image */
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-olly-3768131.jpg");
-
-    /* Set a specific height */
-    height: 50%;
-
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-/* The hero image */
-.signup-image {
   /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-cottonbro-3957987.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-olly-3768131.jpg");
 
   /* Set a specific height */
   height: 50%;
@@ -214,19 +218,106 @@ footer {
 
 /* Place text in the middle of the image */
 .hero-text {
-    font-family: "Lora", serif;
-    font-weight: 600;
-    text-align: center;
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #CADF9E;
+  font-family: "Lora", serif;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #CADF9E;
 }
 
 .hero-text h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    color: #D0B8AC
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #D0B8AC
 }
+
+.client-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-kampus-7551685.jpg");
+  height: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.client-text{
+  font-family: "Lora", serif;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #CADF9E;
+}
+
+.signup-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-cottonbro-3957987.jpg");
+  height: 30%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.list-image{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-jsme-mila-523821574-18459193.jpg");
+    height: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+.java-delete-button {
+  display: inline-block;
+  padding: 1px 10px; 
+  background-color: #363732;
+  color: #D0B8AC;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.java-delete-button:hover {
+  background-color: #fd0000;
+  color: white;
+  border: 2px solid #ffffff;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 995px) {
+  header h1 {
+    font-weight: 600;
+  }
+
+  .body-text{
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .client-image img {
+      width: 50%; /* Or whatever percentage suits your design */
+      height: auto; /* Maintain aspect ratio */
+  }
+
+  .bottom-margin{
+    margin-bottom: 40px;
+  }
+
+  footer {
+    height: 4%;
+  }
+  
+  .footer-text{
+    font-size: x-small;
+    font-weight: 100;
+  }
+}
+

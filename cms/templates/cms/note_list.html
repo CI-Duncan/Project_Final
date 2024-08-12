@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CMS | Client Notes{% endblock %}
+<h1>Notes for {{ client.name }}</h1>
+<ul>
+    {% for note in notes %}
+        <li>{{ note.title }}</li>
+        <li>{{ note.content }}</li>
+    {% endfor %}
+</ul>
+
+
+

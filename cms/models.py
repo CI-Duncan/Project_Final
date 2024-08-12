@@ -52,23 +52,19 @@ class Note(models.Model):
     class Meta:
         ordering = ["-created_on",]
 
-def save(self, *args, **kwargs):
-    if not self.slug:
-        # Generate a slug from the title
-        self.slug = slugify(self.title)
-        
-        # Check if the slug already exists
-        original_slug = self.slug
-        queryset = Note.objects.filter(slug=self.slug).exists()
-        count = 1
-        while queryset:
-            # Update the original_slug with the new candidate before checking again
-            self.slug = f"{original_slug}-{count}"
-            queryset = Note.objects.filter(slug=self.slug).exists()
-            count += 1
-        
-    super(Note, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate a slug from the title
+            self.slug = slugify(self.title)
+            original_slug = self.slug
+            
+            # Iterate until a unique slug is found
+            for i in range(1, 100):  # Limit iterations to avoid infinite loop
+                if not Note.objects.filter(slug=self.slug).exists():
+                    break
+                self.slug = f"{original_slug}-{i}"
 
+        super().save(*args, **kwargs)
     
 
     def __str__(self):

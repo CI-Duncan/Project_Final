@@ -9,4 +9,4 @@ class ClientForm(forms.ModelForm):
 class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields = ["title", "author", "content"]
+        fields = ["title", "content", ]

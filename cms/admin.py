@@ -8,7 +8,7 @@ class ClientAdmin(SummernoteModelAdmin):
     search_fields = ('first_name', 'last_name', 'address', 'phone_number',)
     list_filter = ('gender',)
 
-class CarerAdmin(SummernoteModelAdmin):
+class CarerAdmin(admin.ModelAdmin):
     list_display = ('user', 'role',)
     search_fields = ('user__username',)
     filter_horizontal = ('clients',)
@@ -20,10 +20,7 @@ class NoteAdmin(SummernoteModelAdmin):
     list_filter = ('author', 'created_on', 'client',)
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-   
 
-
+# Register the models with their respective ModelAdmins
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Carer, CarerAdmin)
-
-

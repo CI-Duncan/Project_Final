@@ -16,9 +16,15 @@ logger = logging.getLogger(__name__)
 def home(request):
     return render(request, 'cms/home.html')
 
+# Note list view
+def note_list(request):
+    notes = Note.objects.all()
+    return render(request, 'cms/note_list.html', {'notes': notes})
+
 # Note content view
 def note_content(request, pk):
     note = get_object_or_404(Note, pk=pk)
+    # form = NoteForm()
     return render(request, 'cms/note_content.html', {'note': note})
 
 # Adding of notes
@@ -41,39 +47,50 @@ def note_content(request, pk):
 
 @login_required
 def note_create(request, pk):
-    client = get_object_or_404(Client, pk=pk)
+    client = get_object_or_404(Client, pk=pk)  # Fetch the client using the primary key (pk)
+    
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
             note = form.save(commit=False)
-            note.client = client
-            note.author = request.user
+            note.client = client  # Associate the note with the fetched client
+            note.author = request.user  # Automatically set the author as the logged-in user (carer)
             try:
                 note.save()
                 logger.info(f"Saved note with slug: {note.slug}")
-                return redirect('cms:note_content', pk=note.pk)
+                return redirect('cms:note_content', pk=note.pk)  # Redirect to the newly created note's content page
             except Exception as e:
                 logger.error(f"Failed to save note: {e}")
-                # Handle the error, e.g., by re-rendering the form with errors
+                messages.error(request, 'Failed to save note. Please try again.')
         else:
             logger.warning("Form is not valid")
-            # Handle the case where the form is not valid
+            messages.warning(request, 'Form validation failed. Please correct the errors and try again.')
     else:
         form = NoteForm()
+    
     return render(request, 'cms/note_create.html', {'client': client, 'form': form})
 
 # Editing of notes
 @login_required
 def note_edit(request, pk):
+    # Fetch the note object using the primary key (pk)
     note = get_object_or_404(Note, pk=pk)
     
     if request.method == 'POST':
+        # Bind the form to the POST data and the existing note instance
         form = NoteForm(request.POST, instance=note)
         if form.is_valid():
             form.save()
-            return redirect('cms:note_content', pk=note.pk)
+            messages.success(request, 'Note updated successfully.')
+            return redirect('cms:note_content', pk=note.pk)  # Redirect to the note content page after successful edit
+        else:
+            # Log or handle form validation errors
+            logger.warning("Form validation failed for note edit.")
     else:
+        # If GET request, instantiate the form with the existing note instance
         form = NoteForm(instance=note)
+    
+    # Render the note edit template with the form
     return render(request, 'cms/note_edit.html', {'form': form})
 
 # Deleting notes

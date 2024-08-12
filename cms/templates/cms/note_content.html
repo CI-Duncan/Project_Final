@@ -6,6 +6,8 @@
     <p><strong>Author:</strong> {{ note.author }}</p>
     <p><strong>Date Created:</strong> {{ note.created_on }}</p>
     <hr>
-    <p>{{ note.content }}</p>
+    <p>{{ note.content|safe }}</p>
+    <br>
+    <a href="{% url 'cms:client_detail' pk=note.client.pk %}" class="btn btn-primary">Return to client details</a>
   </div>
 {% endblock %}

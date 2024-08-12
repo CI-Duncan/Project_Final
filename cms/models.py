@@ -6,6 +6,9 @@ from datetime import datetime
 # Create your models here.
 
 class Client(models.Model):
+    """
+    Stores the client data model.  Related to :models: `Carer and Note`
+    """
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -28,6 +31,9 @@ class Client(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class Carer(models.Model):
+    """
+    Stores the carer data model.  Related to :models: `auth.User, Client, and Note `
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=50, default='Carer')
     clients = models.ManyToManyField(Client, related_name='carers')
@@ -40,6 +46,9 @@ class Carer(models.Model):
 
 
 class Note(models.Model):
+    """
+    Stores the Note data model.  Related to :models: `auth.User, Carer, and Client`
+    """
     title = models.CharField(max_length=140, unique=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     author = models.ForeignKey(

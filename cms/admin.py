@@ -3,6 +3,7 @@ from .models import Client, Carer, Note
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
+# SummerNote Admin Class
 class ClientAdmin(SummernoteModelAdmin):
     list_display = ('first_name', 'last_name', 'gender', 'birth_date', 'address', 'phone_number',)
     search_fields = ('first_name', 'last_name', 'address', 'phone_number',)
@@ -13,6 +14,7 @@ class CarerAdmin(admin.ModelAdmin):
     search_fields = ('user__username',)
     filter_horizontal = ('clients',)
 
+# SummerNote Admin Class
 @admin.register(Note)
 class NoteAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug', 'author', 'created_on',)

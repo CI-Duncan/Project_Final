@@ -3,12 +3,21 @@
 
 {% block title %}CMS | Clients{% endblock %}
 
+{% block image %}
+<div class="list-image">
+
+  <!-- <div class="client-text">
+    <h1 class="welcome-header">Welcome to the Complete Care Portal</h1>
+  </div> -->
+</div>
+
+{% endblock %}
 {% block content %}
-  <h1>Clients</h1>
+  <h1 class="page-header">Clients</h1>
   <ul>
     {% for client in clients %}
       <li>
-        <a href="{% url 'cms:client_detail' client.pk %}">{{ client.first_name }} {{ client.last_name }}</a>
+        <a class="page-header" href="{% url 'cms:client_detail' client.pk %}">{{ client.first_name }} {{ client.last_name }}</a>
       </li>
     {% endfor %}
   </ul>

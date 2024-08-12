@@ -115,23 +115,26 @@
     font-weight: 900;
     font-style: italic;
   } */
-  
 
-h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-    text-align: center;
-    color: #16425B;
-}
-
-body {
+  body {
     background-color: #71D0EA;
     background: linear-gradient(to right, transparent, 5%, #71D0EA, 95%, transparent);
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body, html {
     height: 100%;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+  color: #16425B;
 }
 
 .navbar-custom {
@@ -192,6 +195,21 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+/* The hero image */
+.signup-image {
+  /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-cottonbro-3957987.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 /* Place text in the middle of the image */

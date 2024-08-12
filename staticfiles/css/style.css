@@ -116,7 +116,7 @@
     font-style: italic;
   } */
 
-body {
+  body {
     background-color: #71D0EA;
     background: linear-gradient(to right, transparent, 5%, #71D0EA, 95%, transparent);
     font-family: "Lora", serif;

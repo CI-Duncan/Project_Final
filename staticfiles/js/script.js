@@ -1,8 +1,6 @@
-console.log('Static Script Test')
-
 //* Delete confirmation button //
 document.addEventListener('DOMContentLoaded', function() {
-    var forms = document.querySelectorAll('.delete-note-form'); // Use class selector
+    var forms = document.querySelectorAll('.delete-note-form');
     forms.forEach(function(form) {
         form.addEventListener('submit', function(event){
             event.preventDefault();

@@ -123,7 +123,6 @@ body {
   background-color: #71D0EA;
   background: linear-gradient(to right, transparent, 5%, #71D0EA, 95%, transparent);
   font-family: "Lora", serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
@@ -154,7 +153,6 @@ h1 {
 
 .home-text {
   font-family: "Lora", serif;
-  font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   margin-left: 10%;

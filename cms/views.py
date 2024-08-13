@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.urls import reverse
 from django.views import generic
-from .forms import ClientForm, NoteForm 
+from .forms import ClientForm, NoteForm
 from .models import Client, Note
 from django.contrib.auth.decorators import login_required
 import logging
@@ -11,20 +11,22 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-
 # Create your views here.
 def home(request):
     return render(request, 'cms/home.html')
+
 
 # Note list view
 def note_list(request):
     notes = Note.objects.all()
     return render(request, 'cms/note_list.html', {'notes': notes})
 
+
 # Note content view
 def note_content(request, pk):
     note = get_object_or_404(Note, pk=pk)
     return render(request, 'cms/note_content.html', {'note': note})
+
 
 # Adding of notes
     """
@@ -41,8 +43,9 @@ def note_content(request, pk):
     """
 @login_required
 def note_create(request, pk):
-    client = get_object_or_404(Client, pk=pk)  # Fetch the client using the primary key (pk)
-    
+    # Fetch the client using the primary key (pk)
+    client = get_object_or_404(Client, pk=pk)
+
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
@@ -53,9 +56,9 @@ def note_create(request, pk):
                 note.save()
                 logger.info(f"Saved note with slug: {note.slug}")
                 messages.add_message(
-                request, messages.SUCCESS,
-                f'Note created for {client.first_name} {client.last_name}.'
-                )
+                    request, messages.SUCCESS,
+                    f'Note created for {client.first_name} {client.last_name}.'
+                    )
                 return redirect('cms:note_content', pk=note.pk)  # Redirect to the newly created note's content page
             except Exception as e:
                 logger.error(f"Failed to save note: {e}")
@@ -65,8 +68,9 @@ def note_create(request, pk):
             messages.warning(request, 'Form validation failed. Please correct the errors and try again.')
     else:
         form = NoteForm()
-    
+
     return render(request, 'cms/note_create.html', {'client': client, 'form': form})
+
 
 # Editing of notes
     """
@@ -85,7 +89,7 @@ def note_create(request, pk):
 def note_edit(request, pk):
     # Fetch the note object using the primary key (pk)
     note = get_object_or_404(Note, pk=pk)
-    
+
     if request.method == 'POST':
         # Bind the form to the POST data and the existing note instance
         form = NoteForm(request.POST, instance=note)
@@ -100,9 +104,10 @@ def note_edit(request, pk):
     else:
         # If GET request, instantiate the form with the existing note instance
         form = NoteForm(instance=note)
-    
+
     # Render the note edit template with the form
     return render(request, 'cms/note_edit.html', {'form': form, 'note': note})
+
 
 # Deleting notes
     """
@@ -130,7 +135,7 @@ def note_delete(request, pk):
         # The user is not a carer for this client, deny editing
         messages.error(request, 'Carers cannot delete notes of clients they do not manage. Please contact an administrator if this note needs to be removed.')
         return redirect('cms:client_detail', pk=client.pk)
-    
+
     if request.method == 'POST':
         confirmed = request.POST.get('confirmed', False) == 'true'
         if confirmed:
@@ -143,6 +148,7 @@ def note_delete(request, pk):
     else:
         messages.error(request, 'Only carers can delete notes.')
         return redirect('cms:client_detail', pk=client.pk)
+
 
 # List of clients
     """
@@ -176,13 +182,13 @@ def client_list(request):
             elif hasattr(request.user, 'carer'):
                 clients = clients.filter(carers=request.user.carer)
             else:
-                # If the user is not a client or carer, restrict access 
-                clients = Client.objects.none() 
-                #update for error page
-                return render(request, 'cms/') #Update for error page
-
+                # If the user is not a client or carer, restrict access
+                clients = Client.objects.none()
+                # Update for error page
+                return render(request, 'cms/error.html')  #Update for error page
 
         return render(request, 'cms/client_list.html', {'clients': clients})
+
 
 # Add new client
     """
@@ -208,6 +214,7 @@ def client_new(request):
         form = ClientForm()
     return render(request, 'cms/add_client.html', {'form': form})
 
+
 # Edit client
     """
     Edits an existing client if authenticated user
@@ -224,7 +231,7 @@ def client_new(request):
 @login_required
 def client_edit(request, pk):
     client = get_object_or_404(Client, pk=pk)
-        
+
     # Ensure the user has the correct permissions
     if hasattr(request.user, 'client') and request.user.client.id == pk:
         # The user is the client themselves, deny edit access, only view
@@ -247,6 +254,7 @@ def client_edit(request, pk):
         # The user is neither the client nor a carer associated with the client
         return render(request, 'cms/error.html', {'error_message': 'You do not have permission to edit this client.'})
 
+
 # Delete client
     """
     Deletes an existing client if authenticated user
@@ -263,7 +271,7 @@ def client_edit(request, pk):
 @login_required
 def client_delete(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    
+
     # Ensure the user has the correct permissions
     if hasattr(request.user, 'carer') and request.user.carer.clients.filter(pk=pk).exists():
         if request.method == 'POST':
@@ -282,6 +290,7 @@ def client_delete(request, pk):
     else:
         # The user is not a carer associated with the client, deny deletion
         return render(request, 'cms/error.html', {'error_message': 'You do not have permission to delete this client.'})
+
 
 # Detail view for a client
 @login_required

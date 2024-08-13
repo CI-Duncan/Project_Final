@@ -6,7 +6,6 @@ app_name = 'cms'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    # path('cms/', views.cms, name='cms'),
     path('list/', views.client_list, name='client_list'),
     path('new/', views.client_new, name='client_new'),
     path('<int:pk>/', views.client_detail, name='client_detail'),

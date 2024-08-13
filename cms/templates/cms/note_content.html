@@ -8,6 +8,10 @@
     <hr>
     <p>{{ note.content|safe }}</p>
     <br>
-    <a href="{% url 'cms:client_detail' pk=note.client.pk %}" class="btn btn-primary">Return to client details</a>
+    <div class="d-flex justify-content-between mt-3">
+      <div class="d-flex justify-content-end mt-3">
+        <a href="{% url 'cms:client_detail' pk=note.client.pk %}" class="btn btn-secondary">Return to client details</a>
+      </div>
+    </div>
   </div>
 {% endblock %}

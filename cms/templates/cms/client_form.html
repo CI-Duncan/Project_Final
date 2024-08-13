@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}CMS | Clients{% endblock %}
 
@@ -7,7 +8,12 @@
   <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Client</h1>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
+    {{ form|crispy }}
+    <div class="d-flex justify-content-between mt-3">
+      <button type="submit" class="btn btn-primary">Save</button>
+      {% if form.instance.pk %}
+        <a href="{% url 'cms:client_detail' pk=form.instance.pk %}" class="btn btn-secondary">Return to client details</a>
+      {% endif %}
+    </div>
   </form>
 {% endblock %}

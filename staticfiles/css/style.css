@@ -163,7 +163,8 @@ h1 {
 
 main {
   position: relative;
-  min-height: 97%;
+  min-height: 85vh;
+  padding-bottom: 50px;
 }
 
 .page-header{
@@ -182,14 +183,58 @@ main {
   font-weight: 400
 }
 
+form.add-form {
+  max-height: 80vh;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+form .form-control {
+  max-width: 90%;
+  margin-left: 15px;
+  width: 100%;
+  padding: 8px;
+}
+
+/* Target the gender dropdown specifically */
+form select[name="gender"] {
+  max-width: 150px;
+  width: 100%;
+  margin-left: 15px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+form select[name="condition"] {
+  max-width: 600px;
+  width: 100%;
+  margin-left: 15px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+#condition-text textarea {
+  max-height: 150px;
+  max-width: 100%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
 footer {
-  position: fixed;
+  position: relative;
+  margin-top: 50px;
   bottom: 0;
   width: 100%;
-  height: 6%;   
+  height: auto;   
   background: #363732;
   text-align:  center;
   color: #D0B8AC;
+  padding: 10px 0;
 }
 
 .footer-text{
@@ -223,6 +268,7 @@ footer {
   font-weight: 600;
   text-align: center;
   position: absolute;
+  width: 100%;
   top: 70%;
   bottom: 20%;
   left: 50%;
@@ -343,6 +389,7 @@ footer {
     top: 65%;
     font-size: 1rem;
     padding: 5px;
+    width: 90%;
   }
 
   .welcome-header {

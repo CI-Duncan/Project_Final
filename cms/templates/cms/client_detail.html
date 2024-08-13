@@ -21,14 +21,19 @@
     <div>{{ client.condition|safe }}
     </div>
   </div>
-
+  <br>
   <h2>Notes</h2>
+  {% if carer_for_client %}
+  <a href="{% url 'cms:note_create' client.pk %}" class="btn btn-primary">Create New Note</a>
+  {% endif %}
+  <br>
+  <br>
   <ul>
     {% for note in notes %}
     <li>
       <a href="{% url 'cms:note_content' note.pk %}">{{ note.title }}</a> - {{ note.created_on|date:"F j, Y, g:i a" }}
       {% if carer_for_client or user == note.author %}
-        <a href="{% url 'cms:note_edit' note.pk %}">Edit Note</a>
+        <a href="{% url 'cms:note_edit' note.pk %}" class="btn btn-warning">Edit Note</a>
         <form class="delete-note-form" method="post" action="{% url 'cms:note_delete' note.pk %}">
           {% csrf_token %}
           <input type="hidden" name="confirmed" value="true">
@@ -38,15 +43,11 @@
     </li>
   {% endfor %}
 </ul>
-{% if carer_for_client %}
-<a href="{% url 'cms:note_create' client.pk %}">Create New Note</a>
-{% endif %}
-
 <br>
 
 {% if carer_for_client %}
-<a href="{% url 'cms:client_edit' client.pk %}">Edit this client's details</a>
-<a href="{% url 'cms:client_delete' client.pk %}">Delete this client</a>
+<a href="{% url 'cms:client_edit' client.pk %}" class="btn btn-info">Edit this client's details</a>
+<a href="{% url 'cms:client_delete' client.pk %}" class="btn btn-danger">Delete this client</a>
 {% endif %}
 
 {% endblock %}

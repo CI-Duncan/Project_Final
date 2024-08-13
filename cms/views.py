@@ -1,6 +1,6 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 from .forms import ClientForm, NoteForm 
@@ -24,7 +24,6 @@ def note_list(request):
 # Note content view
 def note_content(request, pk):
     note = get_object_or_404(Note, pk=pk)
-    # form = NoteForm()
     return render(request, 'cms/note_content.html', {'note': note})
 
 # Adding of notes
@@ -103,7 +102,7 @@ def note_edit(request, pk):
         form = NoteForm(instance=note)
     
     # Render the note edit template with the form
-    return render(request, 'cms/note_edit.html', {'form': form})
+    return render(request, 'cms/note_edit.html', {'form': form, 'note': note})
 
 # Deleting notes
     """

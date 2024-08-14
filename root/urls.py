@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('cms/', include('cms.urls')), 
+    path('cms/', include('cms.urls')),
+    path('', RedirectView.as_view(url='/cms/', permanent=True)),
 ]

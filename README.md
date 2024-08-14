@@ -4,13 +4,12 @@ A subsection of Complete Care Portal (CCP)
 ![AmIResponsive](static/readme/images/air_cms.png)
 
 ## A Care Notes Management System primarily for carers.
-### CMS manages notes about clients that have been assigned to carers. Allowing access for review and update in situ.
+CMS manages notes about clients that have been assigned to carers. Allowing access for review and update in situ while maintaining medical data security.
 
-The website allows registered users to create blog posts (journal entries) and a profile with their bio and a photo. Users who are not registered are free to browse the posts. To make it easy to find content for you, users can filter blog posts by author or country.  
 
 # **[Link to Live Site](https://client-management-system-8d776b4f8b61.herokuapp.com/cms/)**  
 
-*This a the final FullStack Bootcamp (Berks) project for the Code Institue.*  
+*This a final FullStack Bootcamp (Berks) project for the Code Institue.*  
 
 **Built by Duncan Thow**
 
@@ -74,6 +73,10 @@ While the header has remained largely the same as the intended concept the foote
 # Agile Development
 
 While I have used Agile methodology throughout the development of the Care Management System I have pivoted significantly away from the original core concept.  This is due to the fact that at this point in my development career I found creating a fully fledged interactive calendar with CRUD functionality and linked notes a significant hurdle.  I have moved most of those features to the 'Future Features' section of the Kanban board and followed new user stories.
+
+In addition I created a Site Flow map to aid my visualisation of a users navigation of the website.
+
+![Site Flow](static/readme/images/Care%20Management%20System%20Site%20Flow.png)
 
 [Project Board](https://github.com/users/CI-Duncan/projects/4)
 
@@ -338,7 +341,7 @@ This is currently missing and requires insertion.
 ##### [ Back to Top ](#table-of-contents)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1ODA3MDMyNywxNzc3ODI2MjQwLDg0MT
-I3MjczOCwtMjEzMjYzMzI0MCwtNjMwMTM3OCwzMzE1Mjk1NjZd
-fQ==
+eyJoaXN0b3J5IjpbMTM2MTA2Mjk2NiwxMTIyMzQ4MzQyLC00NT
+gwNzAzMjcsMTc3NzgyNjI0MCw4NDEyNzI3MzgsLTIxMzI2MzMy
+NDAsLTYzMDEzNzgsMzMxNTI5NTY2XX0=
 -->

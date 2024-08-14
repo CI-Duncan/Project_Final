@@ -325,9 +325,8 @@ This is currently missing and requires insertion.
 - [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
 - [Django docs](https://www.djangoproject.com/)
 - [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
-- [Cloudinary docs](https://cloudinary.com/documentation/programmable_media_overview)
 - [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-- [Stack overflow](https://stackoverflow.com/)
+- [Stack overflow](https://stackoverflow.com/) Specfically for CSS and JavaScript help
 - [Code Institude Slack](https://slack.com/)
 
 ##### [ Back to Top ](#table-of-contents)

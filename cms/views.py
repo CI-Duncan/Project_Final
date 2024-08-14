@@ -185,7 +185,7 @@ def client_list(request):
                 # If the user is not a client or carer, restrict access
                 clients = Client.objects.none()
                 # Update for error page
-                return render(request, 'cms/error.html')  #Update for error page
+                return render(request, 'cms/error.html')  # Update for error page
 
         return render(request, 'cms/client_list.html', {'clients': clients})
 

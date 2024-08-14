@@ -179,6 +179,8 @@ This use of Agile principles also helped me realise that my original Django proj
 
 Primary future features would be implementation of the original project plan.
 
+Allowing clients to view the notes made about them and their 'condition' field.  They should not be able to edit these though.
+
 Additionally improving some of the UX features so that the forms sit more naturally on larger pages and the look and feel of the buttons are more consistent.
 
 ##### [ Back to Top ](#table-of-contents)
@@ -217,9 +219,6 @@ I used Chromes in built LightHouse feature of DevTools to test for site responsi
 -- Navbar collapses to a burger bar on smaller screen sizes
 -- Content stacks vertically instaed of horizonstally on smaller screen sizes
 
-
-    enter code here
-
 ## Testing and Validation
 - I used the [W3 HTML Validator](https://validator.w3.org/#validate_by_input+with_options) for checking the site for HTML errors.  In order to compensate for the Django code I validated by URL.
 
@@ -237,6 +236,10 @@ There was error in the Bootstrap NavBar that I haven't been able to fix without 
 - For the Python code I used the [CI Linter](https://pep8ci.herokuapp.com/).  I had numerous Line too Long Errors (due to code comments) and some E302 'expected 2 blank lines' after Code definitions
 
 ![CI Linter Results](static/readme/images/linter.png)
+
+ - For the JavaScript code I used the [ValidateJavaScript](https://validatejavascript.com/).  Which returned no errors
+
+![JavaScript Error Screenshot](static/readme/images/script_validatejavascript.com.jpeg)
 
 ### Manual Testing Results
 
@@ -299,6 +302,8 @@ When attempting to access a client list, client details, or note via a known goo
 - **Currently the Sign In page is not styled inline with the rest of the site.**  
 The default layout of the sign in pages are still in effect.
 
+- **Currently a user cannot access their own care records.**  
+While there is some code for this functionality the requirement to make another user table not related to carer was not completed in time.
 
 - **There forms and note correctly styled.**
 Some forms still have their default styling and are all aligned hard to the left.  This is visually unappealing.  The Add New Client form has had Crispy Forms applied to it but the styling there still requires refinement
@@ -341,7 +346,7 @@ This is currently missing and requires insertion.
 ##### [ Back to Top ](#table-of-contents)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MTA2Mjk2NiwxMTIyMzQ4MzQyLC00NT
-gwNzAzMjcsMTc3NzgyNjI0MCw4NDEyNzI3MzgsLTIxMzI2MzMy
-NDAsLTYzMDEzNzgsMzMxNTI5NTY2XX0=
+eyJoaXN0b3J5IjpbLTE2NDI2NTU3NTksLTEyOTYwMjY1MDAsMT
+QyOTM1ODc1MywxMzYxMDYyOTY2LDExMjIzNDgzNDIsLTQ1ODA3
+MDMyN119
 -->

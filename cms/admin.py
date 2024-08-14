@@ -26,7 +26,7 @@ class NoteAdmin(SummernoteModelAdmin):
                      'client__last_name',)
     list_filter = ('author', 'created_on', 'client',)
     prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('content',)
+    summernote_fields = ('content')
 
 
 # Register the models with their respective ModelAdmins

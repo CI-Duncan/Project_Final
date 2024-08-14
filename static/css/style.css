@@ -126,7 +126,7 @@ footer {
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image. This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-olly-3768131.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-olly-3768131x.jpg");
 
   /* Set a specific height */
   height: 50vh;
@@ -162,7 +162,7 @@ footer {
 }
 
 .client-image{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-kampus-7551685.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-kampus-7551685x.jpg");
   height: 30%;
   background-position: center;
   background-repeat: no-repeat;
@@ -182,7 +182,7 @@ footer {
 }
 
 .signup-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-cottonbro-3957987.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-cottonbro-3957987x.jpg");
   height: 30%;
   background-position: center;
   background-repeat: no-repeat;
@@ -191,7 +191,7 @@ footer {
 }
 
 .list-image{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-jsme-mila-523821574-18459193.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/images/pexels-jsme-mila-523821574-18459193x.jpg");
     height: 40%;
     background-position: center;
     background-repeat: no-repeat;

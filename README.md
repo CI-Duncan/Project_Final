@@ -1,10 +1,12 @@
 # Care Management System (CMS)
 A subsection of Complete Care Portal (CCP)
 
+![AmIResponsive](static/readme/images/air_cms.png)
+
 ## A Care Notes Management System primarily for carers.
 ### CMS manages notes about clients that have been assigned to carers. Allowing access for review and update in situ.
 
-The responsive website allows registered users to create blog posts (journal entries) and a profile with thier bio and a photo. Users who are not registered are free to browse the posts. To make it easy to find content for you, users can filter blog posts by author or country.  
+The website allows registered users to create blog posts (journal entries) and a profile with their bio and a photo. Users who are not registered are free to browse the posts. To make it easy to find content for you, users can filter blog posts by author or country.  
 
 # **[Link to Live Site](https://client-management-system-8d776b4f8b61.herokuapp.com/cms/)**  
 
@@ -33,167 +35,148 @@ The responsive website allows registered users to create blog posts (journal ent
 
 ## Database Planning
 
-Due to a refocusing halfway through my final project (which will be expanded upon under Agile Development) my original database entity relationship diagrams (hereinafter refered to as ERD's).  While I have a 'register' feature on the CMS this does not automatically create a new user.  A site admin must grant a user the correct access rights ('carer') to ensure client medical details data security.  The 'register' feature can also double as an input field for a logged in carer but they will not be able to access the client unless it is assigned and this may not be to the carer who created this entry.
-![CMS ERD current]("/static/readme/images/CMS ERD 2.png")
+Due to a refocusing halfway through my final project (which will be expanded upon under Agile Development) my original database entity relationship diagrams (hereinafter referred to as ERD's) are slightly different from those now in use.  While there is a 'register' feature on the Care Management System this does not automatically create an **authenticated** new user.  A site admin **must** grant a user the correct access rights ('carer' and then correct clients) to ensure a clients medical details data security.
+  
+![Current CMS ERD](static/readme/images/CMS%20ERD%202.png)
+![Original ERD](static/readme/images/Django%20DB%20setup%28org%29.png)
 
 ## UX Design
 
 ### Overview
-Sojourn Scribbles is envisioned as a modern, vibrant, and inclusive platform tailored specifically for solo female travelers. The UX design focuses on creating an engaging and welcoming environment that reflects the spirit of exploration and camaraderie. With a fun and feminine aesthetic, the site aims to foster connections, inspire wanderlust, and celebrate the diverse experiences of solo female travelers.
+Care Management System is designed to securely hold details on a clients care regime.  This includes the clients condition upon being added to the site and notes for ongoing care as provided by a carer.  The site aims to promote a calm and soothing aesthetic to appeal to both clients and carers.
 
 ### Site User
-The primary users of Sojourn Scribbles are solo female travelers from diverse backgrounds and ages, each with their own unique travel stories and perspectives. These users seek a supportive and inclusive community where they can share their adventures, seek advice, and connect with others who share their passion for exploration. They value authenticity, empathy, and the opportunity to engage with like-minded individuals in a safe and welcoming space.
+The primary users of the Care Management System are carers who have been assigned clients by their administrators / Team Leaders. They should be able to swiftly located their clients in a list and be able to add, edit or delete notes as required for any client they are assigned to be a carer of.
 
 ### Goal
-Sojourn Scribbles aims to empower solo female travelers by providing a platform where they can share their experiences, find inspiration for future trips, and build meaningful connections with fellow adventurers. Through authentic storytelling, travel tips, and community engagement, the site strives to create a supportive environment where users feel encouraged to share their stories, seek advice, and support one another in their journeys. The goal is to cultivate a vibrant and inclusive community that celebrates the strength, resilience, and spirit of solo female travelers, while also providing valuable resources and inspiration for their adventures.
+The goal behind the Care Management System is to create an easy and intuitive method of both reviewing and recording their clients condition and care regime.  It is also vital that this system is secure to ensure that a clients medical details cannot be viewed by external parties or internal parties that are not assigned to a client.  This will necessitate frequent staff (or administrator) management of the carer to client relationship via the administrative login.
 
 
 ## Wireframes
 
-I used Balsamiq to create my wireframes. The final product looks a bit different to original intentions but served as a good guide nonetheless. The wireframes contain a lot of detail about the future vision and long term plan for Sojourn Scribbes with future features. These features were not possible due to the scope of the current project for the time contrainsts given. 
+I used Balsamiq to create my wireframes. The final product looks a significantly different to original intentions due previously mentioned refocussing.  This included moving from a client to a carer focused project.  Though the actual details are significantly different the spirit remains consistent with a view to incorporating these wireframes into the projects current iteration at a later date.
+![Home](static/readme/images/Home.png)
 
-![Plan overview](/static/images/readme/Plan.png)
+The original concept was for clients to signup or login and then have access to a calendar which would detail their appointment dates which would link to notes that the clients could create, review, update or delete in order to provide feedback from the clients point of view towards the event.
 
-The origional intention was for the profile section, posts and reccomendations (future feature) to all be on the same page. Upon review this would have been overloading the page a bit.
+![Clients Personal Page](static/readme/images/Personal%20Page.png)
 
-![Home page wireframe](/static/images/readme/Home.png)
+As the original concept was to be client facing I also envisaged an 'About' page detailing the services provided; a 'Contact' page so that prospective clients could make enquires about the services; and a 'Request Assessment' page (which would also function as a site registration page) so that a prospective client could book a clinical review prior to being add as a client
 
-After reassessing that set up I created another wireframe for the profile page - the final structure of this is slightly differnt in that the two sections are stacked horizontally not vertically.
+![About](static/readme/images/About.png)
+![Contact](static/readme/images/Contact.png)
+![Request assessment](static/readme/images/Request%20Assessment%20%28register%29.png)
 
-![Profile wireframe](/static/images/readme/Profile.png)
-
-Next we have the navbar and footer - the end product of both turned out nearly the same as the wireframe with just the filter function seperated from the navbar since it wouldn't be relevant for all pages.
-
-![Navbar and footer wireframe](/static/images/readme/NavFoot.png)
+While the header has remained largely the same as the intended concept the footer has change.  Most notably due to the fact that linking social media accounts to a system holding sensitive medical details would be at the very least problematic.
 
 ##### [ Back to Top ](#table-of-contents)
 
 # Agile Development
 
-For the development of Sojourn Scribbles, I adopted an Agile methodology to ensure iterative and efficient progress throughout the project lifecycle. Central to this approach was the utilization of a Kanban board hosted on GitHub Projects. You can view the project board [here](https://github.com/users/katiejanecoughlan/projects/2).
+While I have used Agile methodology throughout the development of the Care Management System I have pivoted significantly away from the original core concept.  This is due to the fact that at this point in my development career I found creating a fully fledged interactive calendar with CRUD functionality and linked notes a significant hurdle.  I have moved most of those features to the 'Future Features' section of the Kanban board and followed new user stories.
+
+[Project Board](https://github.com/users/CI-Duncan/projects/4)
 
 ## Kanban Board Overview
 
-The Kanban board served as a visual representation of the project's progress and allowed for effective task management. It consisted of the following sections:
+While using the [KanBan ](https://github.com/users/CI-Duncan/projects/4)board I organised it into the following sections:
 
-- **Backlog:** This section contained all the tasks and user stories that were yet to be prioritized for implementation.
-- **Ready:** Tasks and user stories ready for development were moved to this column.
+- **To Do:** This section contained all the tasks and user stories that were yet to be prioritized for implementation.
 - **In Progress:** Work in progress was tracked here, indicating tasks actively being worked on.
-- **In Review:** Upon completion, tasks were moved here for review before being marked as done.
 - **Done:** Tasks that were completed successfully were moved to this column.
 - **Future Features:** Ideas and tasks earmarked for future development were kept in this section for consideration in subsequent iterations.
 
+I also used MoSCoW as detailed below:
+- **P0:** This was Must-Have
+- **P1** This was Should-Have.
+- **P2** This was Could-Have.
+- **(empty)** Was Wont-Have
+
 ### User Stories Integration
 
-User stories played a pivotal role in shaping the development process, ensuring that features were aligned with user needs. These user stories were mapped onto the Kanban board, guiding the prioritization and implementation of tasks. 
+As user stories are a core of Agile Methodology they were used to define the tasks on the KanBan board.  This is to ensure that the project can match with user requirements.
 
 ### Task Management
 
-In addition to tracking user stories, the Kanban board served as a comprehensive task list. I utilized it to break down user stories into smaller, actionable tasks, ensuring clear and manageable objectives for development. This granular approach facilitated efficient progress tracking and enhanced team collaboration.
+The Kanban board has been used to both track user stories and to ensure that there was a list of tasks that could be monitored and velocity measured against.  This enabled me to break down larger tasks in to more manageable objectives.
 
-By leveraging Agile principles and utilizing the Kanban board effectively, the development of Sojourn Scribbles remained focused, adaptable, and responsive to evolving requirements, resulting in a more robust and user-centric Django blog application.
-
+This use of Agile principles also helped me realise that my original Django project would not be achievable at my then velocity which allowed me to pivot to a related yet entirely different concept that could be integrated with my original idea at a later date.
 
 ## User Stories Overview
 
 1. **Title:** Implement User Registration
-   - As a **user**, I can **register for an account** on Sojourn Scribbles so that **I can create and share my travel experiences with others**.
+   - As a **user**, I can **register for an account** so that **my details will be retained**.
 
 2. **Title:** Enable User Authentication
-   - As a **registered user**, I can **log in** to my account on Sojourn Scribbles so that **I can access personalized features and interact with other users**.
+   - As a **registered user**, I can **log in** to my account that **I can access diary features**.
 
-3. **Title:** Create Journal Entry Form
-   - As a **user**, I can **create journal entries** to document my travel experiences on Sojourn Scribbles so that **I can share my adventures with the community**.
+3. **Title:** Client Notes Form
+   - As a **registered user**, I can **create note entries** so that admin and other carers are **aware of my actions with the client**.
 
-4. **Title:** Display Journal Posts
-   - As a **user**, I can **view journal posts** created by other users on Sojourn Scribbles so that **I can discover new travel destinations and gain inspiration for my own trips**.
+4. **Title:** Display a list of clients
+   - As a **registered user**, I can **view a list of clients** assigned to me by the admin  team so that **I quickly located the condition and notes for an assigned client**.
 
-5. **Title:** Create Comment Functionality
-   - As a **user**, I can **comment on posts** on Sojourn Scribbles so that **I can engage with other users and discuss our experineces**.
+5. **Title:** Create Note Functionality
+   - As a **registered user**, I can **create a note for a client** so that **I inform other carers who look after the same client of what care has been provided**.
 
 6. **Title:** Create Profile Page
-   - As a **user**, I can **create a profile** with a bio and my photo **I can save and edit my profile to customize my journal**.
-
-7. **Title:** Integrate Cloudinary API for Image Hosting
-   - As a **user**, I can **upload my travel images** to the Cloudinary API on Sojourn Scribbles so that **I can enhance my journal entries with visually appealing content**.
+   - As a **registered user**, I can **create a new client ** with personal and medical details so that  **I add clients I may have attended who are not on the system**.
 
 ##### [ Back to Top ](#table-of-contents)
 
 # Features Implemented
 
 ## Home Page:
-  - Blog posts are displayed as cards.
-  - Filters (user and country) functionality allows users to filter posts.
+  - Logon system which must be secure.
+  - CTA if not signed in.
   - Users can click on a blog card to read the entire post.
-  - Commenting functionality allows users to comment on blog posts.
-  - Users can edit and delete their own comments.
-  - Users must be logged in to comment, edit, or delete comments.
-  - Users must be logged in to delete their own blog posts.
-  - Users cannot delete or edit blog posts or comments created by other users.
-  - Comments require admin approval.
-
-## About Page:
-  - Provides an overview of Sojourn Scribbles and its aims.
-  - Includes a feedback form for users to share their feedback.
-  - Accessible without the need for user authentication.
 
 ## Footer/Nav Bar:
-  - Navigation links facilitate easy navigation throughout the website.
-  - Social media links direct users to Sojourn Scribbles' social media pages.
+  - Copyright information.
+  
+## Clients Page:
+  - List of clients assigned to the user
+  - Users can select any of their clients but not clients to assigned to them
 
-## Profile Page:
-  - Access requires user authentication.
-  - Users can edit their profile information (bio and title).
-  - Profile editing is done through a form toggled by an "Edit Profile" button.
-  - Users can create blog posts, including uploading images.
-  - After submitting a post, users are redirected to the home page to view their published post.
+## Client Details Page:
+ - Name and pertinent details displayed.
+ - Ability to update client details or delete the client.
+ - Ability to see and interact with the clients notes.
+ - Ability to delete notes if required (with warnings)
+  
+## New Note Page:
+  - Allows creation of note assigned to client from above Client Details Page.
 
-## Login Page:
-  - Secure signup functionality allows users to register securely.
-  - Successful login redirects users to the home page.
-
-## Registration Page:
-  - Secure login functionality allows users to log in securely.
-  - Successful registration redirects users to the home page.
-
-## Logout Page:
-  - Logout functionality allows users to sign out securely.
+## Note View Page:
+  - Note Title and details displayed as well as the Note Author and time of Note creation.
+  
+## Note Edit Page:
+  - Title and Content of Note editable.
   - After successful logout, users are redirected to the home page.
+
+## Add Client Page:
+  - Full details of client able to be added from this page.
+  - Note to inform carers inputting clients that they will not be access the client until administrative intervention
 
 ### Responsive Design:
 
-   - The website is designed to be responsive, ensuring optimal usability across various screen sizes.
-   - Navbar collapses into a burger bar for improved navigation on smaller screens.
-   - Masthead images are omitted from individual blog posts on smaller screens to enhance readability and aesthetics.
+   - The website is designed with responsive design methodologies in mind.
+   - Navbar collapses, text resizes and margins are changed to aid navigation on smaller devices .
+
 
 ## Additional Security Features:
 
    - Prevention of brute force actions via URL.
-   - Users are redirected to the sign-in page with an unauthorized action notification if they attempt unauthorized actions.
-   - Prevention of users deleting other users' posts.
+   - Prevention of users accessing non-assigned clients.
    - Prevention of users posting as other users.
 
 ##### [ Back to Top ](#table-of-contents)
 
 # Future Features
 
-- **Community Engagement:**
-  - Implement a user interaction feature where users can follow each other, fostering a sense of camaraderie and enabling content discovery within the community.
-  - Enable users to view each other's profiles, facilitating connections and allowing users to learn more about fellow travelers' interests and experiences.
-  - Provide users with a log of their published posts on their profile page, promoting self-reflection and making it easier for users to revisit their past contributions.
+Primary future features would be implementation of the original project plan.
 
-- **Enhanced Recommendations:**
-  - Introduce a recommendations section within posts, allowing users to share travel tips and insights with the community, enhancing the platform's value as a travel resource.
-  - Enable users to save recommendations for future reference, creating personalized collections of travel advice tailored to their interests and preferences.
-  - Utilize the Google Maps API to enrich the recommendations section, offering users visual representations of recommended locations and aiding in travel planning.
-
-- **Improved Search Functionality:**
-  - Implement a search bar to empower users to find specific content on the website, improving usability and content discoverability.
-  - This feature expands the navigation options beyond existing filters, providing users with greater flexibility in exploring the diverse content available on the platform.
-
-- **Improved UX:**
-  - Introduce a landing page that serves as a log in/register page and contains info about Sojourn Scribbles to provide the user more immediately with a clear call to action and purpose for the website.  
-  - The user would be directed to this page when they click to the website as opposed to the current home page post feed. 
+Additionally improving some of the UX features so that the forms sit more naturally on larger pages and the look and feel of the buttons are more consistent.
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -202,21 +185,16 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 - HTML - for page structure
 - CSS - for custom styling
 - Python - for the backend
-- Javascript - for event listeners on buttons
+- Javascript - for (an) event listener on (a) buttons
 - Django - framework used to build this project
-- Jinja - templating language rendering logic within html documents
 - Bootstrap 5 - front end framework used for styling
 - Heroku PostgreSQL - used as the database
 - Balsamiq - for wireframes
-- Canva - for creating assets
-- Font Awesome - for social media icons
 - Lucidchart - for database ER diagrams
-- Gencraft - for AI images
 - Pexels - for free stock images
 - Google Fonts- for custom font styling
 - GitHub - for storing the code and for the Kanban board
 - Heroku - for hosting and deployement of this project
-- Cloudinary - hosting the static files 
 - Git - for version control
 
 ##### [ Back to Top ](#table-of-contents)
@@ -225,47 +203,37 @@ By leveraging Agile principles and utilizing the Kanban board effectively, the d
 
 ## Responsiveness
 
-I used the dev tools on chrome to test the website for responsiveness. I captured screenshots to demonstrate responsive design across mobile, tablet and laptop based on the size configurations preset in dev tools.  
-Some particular features to note:
+I used Chromes in built LightHouse feature of DevTools to test for site responsiveness with the results as follows:
+
+![Home LightHouse](static/readme/images/home_light.jpg)
+
+![Client List LightHouse](static/readme/images/list_light.png)
+
+![Client Details LightHouse](static/readme/images/client_light.png)
+
 -- Navbar collapses to a burger bar on smaller screen sizes
--- There is no image in the masthead within a blog post on smaller screen sizes
 -- Content stacks vertically instaed of horizonstally on smaller screen sizes
--- The smaller the screen the less blog post cards visible on the home page
 
-### The Profile Page
 
-**Laptop**
-![Screenshot of profile page view on laptop](/static/images/readme/lappro.png)
-
-**Tablet**
-![Screenshot of profile page view on tablet](/static/images/readme/tabpro.png)
-
-**Mobile**
-![Screenshot of profile page view on mobile](/static/images/readme/mobpro.png)
-
-### Other Examples
-
-**Laptop**
-![Screenshot of about page view on laptop](/static/images/readme/lapabo.png)
-
-**Tablet**
-![Screenshot of a post view on tablet](/static/images/readme/tabpos.png)
-
-**Mobile**
-![Screenshot of the home page view on mobile](/static/images/readme/mobhom.png)
+    enter code here
 
 ## Testing and Validation
-- I used the [W3 HTML Validator](https://validator.w3.org/#validate_by_input+with_options) to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors (extra </div> tags and correcting how width is set in an img tag). *However* there are some error messages remaning which are due to the content being created using Django Summernote editor in the admin panel.  
+- I used the [W3 HTML Validator](https://validator.w3.org/#validate_by_input+with_options) for checking the site for HTML errors.  In order to compensate for the Django code I validated by URL.
+
+![WW3 Home Validator](static/readme/images/Home_13-8-2024_175417_validator.w3.org.jpeg)
+
+There was error in the Bootstrap NavBar that I haven't been able to fix without breaking the navigation links:
+
+![Login NavBar HTML error](static/readme/images/Login_BS_Navbar_Fail_13-8-2024_175945_validator.w3.org.jpeg)
+
   
-- I used the [W3 CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) to check my CSS script by Direct Input. I found no errors! There are 5 warnigns which are just flagging vendor extensions.
+- For CSS I used [W3 CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) as my error checker and found no errors.  In this instance I used direct text input of my file.
 
-![CSS validation results](/static/images/readme/css.png)  
+![CSS Validator](static/readme/images/CSS_13-8-2024_18150_jigsaw.w3.org.jpeg)
   
-- I used the [CI Python Linter](https://pep8ci.herokuapp.com/) to check all my python scripts. I found a few small errors like the below - mostly lines were too long or there was a missing blank space line. I have left some of the error messages as they are related to a too long line at the result of a comment.
+- For the Python code I used the [CI Linter](https://pep8ci.herokuapp.com/).  I had numerous Line too Long Errors (due to code comments) and some E302 'expected 2 blank lines' after Code definitions
 
-![Python Linter Result](/static/images/readme/linter.png)
-
-- I also used the Django automated testing within my Gitpod workspace. 
+![CI Linter Results](static/readme/images/linter.png)
 
 ### Manual Testing Results
 
@@ -273,48 +241,30 @@ Some particular features to note:
 
 | Test                                     | Result |
 |-----------------------------------------|--------|
-| Blog posts displayed as cards           | Pass   |
-| Filters (user and country) functionality| Pass   |
-| Ability to click on a blog card         | Pass   |
-| Commenting functionality                | Pass   |
-| Edit and delete comment functionality   | Pass   |
-| User must be logged in to comment/edit/delete | Pass |
-| User must be logged in to delete blog post  | Pass |
-| User cannot delete/edit others' comments | Pass |
-| Comments require admin approval         | Pass   |
-| Prevention of deleting other users' posts  | Pass   |
-| Prevention of posting as other users        | Pass   |
+| Cannot access client data if not logged on          | Pass   |
+| Call to Action displayed if not logged on| Pass   |
 
-### ABOUT PAGE
+### Client List Page
 
 | Test                                     | Result |
 |-----------------------------------------|--------|
-| Overview of Sojourn Scribbles           | Pass   |
-| Feedback form functionality             | Pass   |
-| Accessible without login                | Pass   |
+| List of Clients displayed           | Pass   |
+| Only assigned clients displayed             | Pass   |
 
-### FOOTER/NAV BAR
-
-| Test                                     | Result |
-|-----------------------------------------|--------|
-| Navigation links functionality          | Pass   |
-| Social media links functionality        | Pass   |
-
-### PROFILE PAGE
+### Client Details PAGE
 
 | Test                                     | Result |
 |-----------------------------------------|--------|
-| Access requires login                   | Pass   |
-| Edit profile form functionality        | Pass   |
-| Post creation functionality             | Pass   |
-| Redirect after post submission          | Pass   |
+| Correct details displayed                   | Pass   |
+| Edit client form functionality        | Pass   |
+| Delete client form functionality           | Pass   |
+| Redirect after submission or cancellation          | Pass   |
+| Redirect after submission or cancellation          | Pass   |
+| Create note form functionality        | Pass   |
+| Edit note form functionality        | Pass   |
+| Delete note form functionality           | Pass   |
 
-### LOGIN PAGE
 
-| Test                                    | Result |
-|----------------------------------------|--------|
-| Secure signup functionality            | Pass   |
-| Redirect after successful login        | Pass   |
 
 ### REGISTRATION PAGE
 
@@ -337,96 +287,25 @@ Some particular features to note:
 | Prevention of brute force actions via URL                        | Pass   |
 | Redirect to sign-in page after attempted unauthorized action | Pass   |
   
-![Redirect after brute force attempt](/static/images/readme/bruteforce.png)
+When attempting to access a client list, client details, or note via a known good URL but when not logged in the CMS website will display the sign in page.
 
 ##### [ Back to Top ](#table-of-contents)
 
 # Known Bugs
 
-- **There is a bug with alert message in the profiles view.**  
-The error message for the PostForm is not working as expected BUT thanks to the power of Django the user still receives red error messages within the form itself.  
-The ProfilesForm success message was incorrectly displaying when there was an error submitting the PostForm. To avoid confusion for the user, until the bug is resolved I have turned off that alert message.  
-  
-![Alert message error](/static/images/readme/ealert.png)
+- **Currently the Sign In page is not styled inline with the rest of the site.**  
+The default layout of the sign in pages are still in effect.
 
 
-- **There is a bug with handling input from Django Summernote to the Profile Form.**
- If you fill in the Profile Form from the admin panel the output is rendered with all of the coding tags visible and not formatted.  
- Thanks to Django, the users don't have access to the admin panel and can only create their profile from the form on the website so it is not posssible for them to experience this bug!
- ![Summernote Error](/static/images/readme/esummernote.png)
+- **There forms and note correctly styled.**
+Some forms still have their default styling and are all aligned hard to the left.  This is visually unappealing.  The Add New Client form has had Crispy Forms applied to it but the styling there still requires refinement
 
- - **There is a bug with the favicon site.webmanifest file**
- The below console error messages are related to the site.webmanifest file for my favicon. I tested removing the link to this file at the top of my base.html and the console was free of errors. However, based on some research I have decided to leave the file in because it's crucial for Progressive Web Apps (PWAs), providing essential metadata such as the application's name, icons, theme colors, and display mode to browsers. However, potential bugs or unexpected behavior may arise due to syntax errors, misconfigurations, or conflicts with other components. Acknowledging these issues emphasizes my commitment to resolving them, ensuring the application meets PWA standards and delivers an optimal user experience.
- ![site.webmanifest console error](/static/images/readme/ewebmanifest.png)
-
- - **There is a bug with image handling on the Profile page**
- I have a field to upload a profile image on the profile form, however there is a conflict with jQuery and my profile.js file. This conflict results in breaking the image handling - it does not display on the profile page nor is it uploaded to cloudinary.  
- I tried my best to resolve this issue but unfortunately it was not possible within the given time contraints based on the relative importance of the feature.  
- Some things I tired:  
-  -- using jQuery no conflict var in different ways  
-  -- loading the jQuery script in profile.js, base.html and profiles.html  
-  -- restructuring the JS file  
-  To avoid causing confusion for the user, I made the decision to remove the image upload field from the Profile form. The impact of this is that the user cannot customize their profile photo. Although the action is available in the admin panel so if the user is especially eager they can use the handly contact form to provide a link to their image!
+ - **There is no favicon **
+This is currently missing and requires insertion.
 
 ##### [ Back to Top ](#table-of-contents)
 
-# Deployment 
 
-## Deployment Guide for the Sojourn Scribbles Website
-
-### Deployment Steps:
-
-#### Creating the Heroku App
-
-- Begin by signing up or logging in to Heroku.
-- In the Heroku Dashboard, click on 'New' and then select 'Create New App'.
-- Choose a unique name for your project, like "Travelling Scribbles".
-- Select the EU region.
-- Click on "Create App".
-- In the "Deploy" tab, choose GitHub as the deployment method.
-- Connect your GitHub account and find/connect your GitHub repository.
-
-#### Setting Up Environment Variables
-
-- Create `env.py` in the top level of the Django app.
-- Import `os` in `env.py`.
-- Set up necessary environment variables in `env.py`, including the secret key and database URL.
-- Update `settings.py` to use environment variables for secret key and database.
-- Configure environment variables in the Heroku "Settings" tab under "Config Vars".
-- Migrate the models to the new database connection in the terminal.
-- Configure static files and templates directories in `settings.py`.
-- Add Heroku to the `ALLOWED_HOSTS` list.
-
-#### Creating Procfile and Pushing Changes
-
-- Create a `Procfile` in the top level directory.
-- Add the command to run the project in the `Procfile`.
-- Add, commit, and push the changes to GitHub.
-
-#### Heroku Deployment
-
-- In Heroku, navigate to the Deployment tab and deploy the branch manually.
-- Monitor the build logs for any errors.
-- Upon successful deployment, Heroku will display a link to the live site.
-- Make sure to resolve any deployment errors by adjusting the code as necessary.
-
-### Forking the Repository
-
-Forking the GitHub Repository allows you to create a copy of the original repository without affecting it. Follow these steps:
-
-- Log in to GitHub or create an account.
-- Visit the [repository link](https://github.com/katiejanecoughlan/sojourn-scribbles-V3).
-- Click on "Fork" at the top of the repository.
-
-### Creating a Clone of the Repository
-
-Creating a clone enables you to make a local copy of the repository. Follow these steps:
-
-- Navigate to the [Sojourn Scribbles repository](https://github.com/katiejanecoughlan/sojourn-scribbles-V3).
-- Click on the <>Code button.
-- Select the "HTTPS" option under the "Local" tab and copy the URL.
-- Open your terminal and change the directory to your desired location.
-- Use `git clone` followed by the copied repository URL.
 
 
 ##### [ Back to Top ](#table-of-contents)
@@ -436,11 +315,9 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 - [Code Institute Full Stack Development course materials](https://codeinstitute.net/) 
 - [Django docs](https://www.djangoproject.com/)
 - [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
-- [jQuery docs](https://learn.jquery.com/using-jquery-core/avoid-conflicts-other-libraries/#:~:text=Thus%2C%20if%20you%20are%20using,use%20jQuery%20in%20your%20page.)
 - [Cloudinary docs](https://cloudinary.com/documentation/programmable_media_overview)
 - [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [Stack overflow](https://stackoverflow.com/)
-- [Dev Community](https://dev.to/)
 - [Code Institude Slack](https://slack.com/)
 
 ##### [ Back to Top ](#table-of-contents)
@@ -448,19 +325,20 @@ Creating a clone enables you to make a local copy of the repository. Follow thes
 # Credits and Acknowledgements
 
 ## Images
-
-- The Sojourns Scribbles logo was created by me using [Canva](https://www.canva.com/)
-- Profile images for the mock content were generated by AI using [gencraft](https://gencraft.com/)
-- Post featured images for the mock content were taken from royalty free stock photos on [Pexels](https://www.pexels.com/)
+- Banner featured images were taken from royalty free stock photos on [Pexels](https://www.pexels.com/)
 
 ## Code
 
-- **Code Institute** course content for providing the knowledge and guidance to build the project
-- GitHub user **TulaUnogi** for sharing a best practice README structure
-- Course Facilitator **David Calikes** for his unwaving support and guidance during the process 
-- Tutor **Martin McInerney** for his endless patience and support with trouble shooting issues
-- Tutor **Kevin Loughrey** for his helpful SME sessions and constant support
-- My mentor **Chris Quinn** for sharing his wisdom and guiding me in this project
-- My fellow **cohort peers** for their support, help with trouble shooting issues and sharing the experience
-
+ - **Code Institute** course content for providing the knowledge and guidance to build the project
+ - And,  of course, the team at CI including (but not limited to):
+ - My mentor **Alexander** for his continued support and ability to listen to my waffle.
+ - Code Guru's **Kevin Loughrey** and **Martin McInerney**  for their ability to describe complex ideas simply and in a relatable manner.
+ - The entire Berkshire Bootcamp for showing me what was possible and being there when it wasn't quite achieved.
+ 
 ##### [ Back to Top ](#table-of-contents)
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTQ1ODA3MDMyNywxNzc3ODI2MjQwLDg0MT
+I3MjczOCwtMjEzMjYzMzI0MCwtNjMwMTM3OCwzMzE1Mjk1NjZd
+fQ==
+-->

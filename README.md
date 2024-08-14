@@ -7,7 +7,7 @@ A subsection of Complete Care Portal (CCP)
 CMS manages notes about clients that have been assigned to carers. Allowing access for review and update in situ while maintaining medical data security.
 
 
-# **[Link to Live Site](https://client-management-system-8d776b4f8b61.herokuapp.com/cms/)**  
+# **[Link to Live Site](https://client-management-system-8d776b4f8b61.herokuapp.com/)**  
 
 *This a final FullStack Bootcamp (Berks) project for the Code Institue.*  
 

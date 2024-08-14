@@ -311,6 +311,8 @@ Some forms still have their default styling and are all aligned hard to the left
  - **There is no favicon **
 This is currently missing and requires insertion.
 
+**  The original code for the calendar based application is currently https://github.com/CI-Duncan/Final-Project and maybe incorporated at a later date **
+
 ##### [ Back to Top ](#table-of-contents)
 
 
